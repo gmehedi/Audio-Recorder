@@ -52,7 +52,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
     
     //MARK: IBActions
     @IBAction func recordTouchUp(_ sender: Any) {
-//        recorderAndPlayer.record()
+       // recorderAndPlayer.record()
     }
     
     @available(iOS 13.0, *)
