@@ -4,7 +4,6 @@
 //
 //  Created by Kiran Kumar on 3/15/19.
 //  Copyright © 2019 Kiran Kumar. All rights reserved.
-//
 
 import UIKit
 import AVFoundation
@@ -32,9 +31,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDe
     }
     
     
-    @available(iOS 13.0, *)
     @IBAction func goButton(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "RecordingListVc") as? RecordingListVc
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RecordingListVc") as? RecordingListVc
         vc?.recordingList = recorderAndPlayer.audioList
         self.navigationController?.pushViewController(vc!, animated: true)
     }

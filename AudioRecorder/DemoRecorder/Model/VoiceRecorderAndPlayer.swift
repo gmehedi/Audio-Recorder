@@ -27,21 +27,11 @@ class VoiceRecorderAndPlayer : NSObject, AVAudioRecorderDelegate, AVAudioPlayerD
     var audioList = [URL]()
     static let sharedInstance = VoiceRecorderAndPlayer()
     
-    private override init() { // Is it that easy to make the init private?
+    private override init() {
         
         super.init()
        // setUpRecorder()
         
-        /* Initially, I got the following errors everytime I try to play back recorded audio the FIRST TIME ONLY after launching my app:
-         DemoRecorder[5930:2262392] [avas] AVAudioSessionPortImpl.mm:56:ValidateRequiredFields: Unknown selected data source for Port Speaker (type: Speaker)
-         DemoRecorder[5930:2262392] [avas] AVAudioSessionPortImpl.mm:56:ValidateRequiredFields: Unknown selected data source for Port Receiver (type: Receiver)
-         
-         These errors would show up, and my first segment of recorded audio would not play back. Subsequent segments would work just fine
-         
-         The fix below (from https://forums.developer.apple.com/thread/108785) does not get rid of the errors, but it DOES fix the issues that initially prevented me from playing back my first recording. Additionally, it significantly raises the playback volume.
-         
-         I don't know what these two lines really do. I'll have to investigate
-         */
         do {
             try _audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: .spokenAudio, options: .defaultToSpeaker)
             try _audioSession.setActive(true, options: .notifyOthersOnDeactivation)
@@ -69,8 +59,6 @@ class VoiceRecorderAndPlayer : NSObject, AVAudioRecorderDelegate, AVAudioPlayerD
     }
     
     private func setUpPlayer() {
-        let newUrl = _filename + String(audioList.count) + ".aac"
-       // print("NewUrl  ", newUrl)
         if self.audioList.count == 0 {
             return
         }
