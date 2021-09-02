@@ -20,7 +20,7 @@ class RecordingListVc: UIViewController {
         super.viewDidLoad()
         
     }
-
+    
     @IBAction func tappedOnPlayButton(_ sender: Any) {
         if recordingList.count == 0 {
             return

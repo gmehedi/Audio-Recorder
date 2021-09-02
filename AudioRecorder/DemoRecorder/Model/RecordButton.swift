@@ -13,12 +13,10 @@ class RecordButton: UIButton {
     var recorderAndPlayer : VoiceRecorderAndPlayer = VoiceRecorderAndPlayer.sharedInstance
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("Begin")
         recorderAndPlayer.record()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("End")
         recorderAndPlayer.stopRecording()
     }
 }

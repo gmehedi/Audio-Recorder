@@ -70,7 +70,7 @@ class VoiceRecorderAndPlayer : NSObject, AVAudioRecorderDelegate, AVAudioPlayerD
     
     private func setUpPlayer() {
         let newUrl = _filename + String(audioList.count) + ".aac"
-        print("NewUrl  ", newUrl)
+       // print("NewUrl  ", newUrl)
         if self.audioList.count == 0 {
             return
         }
